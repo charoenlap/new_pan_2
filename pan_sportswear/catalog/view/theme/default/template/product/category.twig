@@ -1,0 +1,131 @@
+{{ header }}
+<section id="breadcrumb">
+  <div class="container">
+    <div class="le-breadcrumb inline">
+      <div class="iconic-nav-bar">
+        <div class="icon-holder">
+          <i class="fa fa-chain"></i>
+          <span class="triangle"></span>
+        </div>
+        <div class="bar">
+          <ul>
+            {% for breadcrumb in breadcrumbs %}
+              <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="products-grid-sidebar" class="section-products-grid">
+  <div class="container">
+    {{column_left}}
+    <div class="col-xs-12 col-md-9 ">
+      <div class="row">
+        <div class="mosaic-holder col-xs-12">
+          <div class="mosaic-banner big  ">
+
+            <img alt="" src="{{ banner_footer[0].image }}" />
+            {# <div class="caption ">
+              <h1 >
+              <span class="light ">sexy high heels</span><br>
+              collection
+              </h1>
+              <a class="le-btn medium" href="#">learn more</a>
+            </div> #}
+          </div>
+        </div>
+      </div>
+      <div class="controller-nav-bar row">
+        <div class="col-xs-12 col-sm-9 col-md-9">
+          
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 ">
+          
+        </div>
+      </div>
+      <div class="product-grid tab-content">
+        <!--grid view starts here-->
+        <div id="grid-view" class="tab-pane active">
+          <div  class="products-holder simple-grid">
+            {% if products %}
+              {% set i = 1 %}            
+              {% set count = 1 %}
+              {% for product in products %}
+              {% if i == 1 %}<div class="row ">{% endif %}
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 ">
+                <div class="product-item">
+                  <div class="head">
+                    <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" style="width:100%;" /></a>
+
+                    {% if product.price %}
+                    <div class="price">
+                      {% if not product.special %}
+                      <div class="price-current">{{ product.price }}</div>
+                      {% else %} 
+                      <div class="price-current">{{ product.special }}</div>&nbsp;
+                      {% if product.percent != 0 %}
+                      <div class="price-current">-{{ product.percent }}%</div> 
+                      {% endif %}
+                      <div class="price-old">{{ product.price }}</div> 
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                    {% if product.rating %}
+                    <div class="star-holder">
+                      <div class="star"  data-score="{{ product.rating }}"></div>
+                    </div>
+                    {% endif %}
+                    <button class="btn-compare  btn-iconic" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"></button>
+                  </div>
+                  <div class="body">
+                    <h3><a href="{{ product.href }}">{{ product.name }}</a></h3>
+                    <div class="excerpt">{{ product.description }}</div>
+                    <div class="merged-buttons">
+                      <button class="btn-add-to-cart le-btn btn-iconic " onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">{{ button_cart }}</button>
+                      <button class="btn-add-to-wishlist le-btn btn-iconic" onclick="wishlist.add('{{ product.product_id }}');"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% if count == products|length or i == 3 %}</div> {% set i = 0 %}{% endif %}
+              {% set i = i + 1 %}
+              {% set count = count + 1 %}
+              {% endfor %}
+            {# </div> #}
+            <div class="row">
+              <div class="col-sm-6 text-left">{{ pagination }}</div>
+              <div class="col-sm-6 text-right">{{ results }}</div>
+            </div>
+            {% endif %}
+            {% if not categories and not products %}
+             <div class="row">
+               <div class="col-md-12">
+                  <p>{{ text_empty }}</p>
+                  <a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+               </div>
+             </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  
+    var maxHeightProduct = 0;
+    $('.product-item').each(function(index, el) {
+        var h = $(this).height();
+        if (h > maxHeightProduct) {
+            maxHeightProduct = h;
+        }
+    });
+    $('.product-item').css('min-height', maxHeightProduct + 'px');
+});
+</script>
+
+    {{ footer }}

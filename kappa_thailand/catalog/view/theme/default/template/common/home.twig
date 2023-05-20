@@ -1,0 +1,204 @@
+{{ header }}
+<section id="home-slider">
+    <div class="homeslider">
+        <div class="owl-carousel owl-theme">
+            {% for banner in banners_home %}
+            <div class="item">
+                <div class="caption bottom-left">
+                </div>
+                <img src="{{ banner.image }}" alt="">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{# <section id="featured-products">
+    <div class="container">
+        <div class="iconic-nav-bar">
+            <div class="icon-holder">
+                <i class="fa fa-star"></i>
+                <span class="triangle"></span>
+            </div>
+            <div class="bar">
+                <h2>BRANDS <span class="bold"> PRODUCTS</span></h2>
+                <div class="nav-buttons">
+                    <a class="btn-prev" href="#prev"></a>
+                    <a class="btn-next" href="#next"></a>
+                </div>
+            </div>
+        </div>
+        <div class="products-holder product-carousel owl-carousel">
+            {% for brand in manufacturers %}
+            <div class="product-item">
+                <div class="head">
+                    <div class="">
+                        {% if brand.href %}
+                        <a href="{{ brand.href }}">
+                        {% endif %}
+                        <img alt="" src="{{ brand.image }}" />
+                        {% if brand.href %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section> #}
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            {% set i = 1 %}
+            {% for banner in banners_sale %}
+            {% if i <= 2 %}
+            <div class="col-sm-6">
+                {% if banner.link %}
+                <a href="{{banner.link}}">
+                {% endif %}
+                <img src="{{banner.image}}" alt="" style="width:100%;">
+                {% if banner.link %}
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% set i = i + 1 %}
+            {% endfor %}
+            {# <div class="col-sm-6">
+                <a href="index.php?route=product/category&path=112">
+                <img src="http://placehold.it/600x400/" alt="">
+                </a>
+            </div> #}
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {{vdo}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="bestsellers">
+    <div class="container">
+        <div class="iconic-nav-bar">
+            <div class="icon-holder">
+                <i class="fa fa-dollar"></i>
+                <span class="triangle"></span>
+            </div>
+            <div class="bar">
+                <h2>best <span class="bold">sellers</span></h2>
+            </div>
+        </div>
+        <div class="products-holder simple-grid">
+            {% for product in product_bestseller %}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
+                <div class="product-item">
+                    <div class="head">
+                        {% if product.new %}
+                        <div class="le-ribbon blue right"><span>new!</span></div>
+                        {% endif %}
+                        <div class="thumb">
+                            <a href="{{ product.href }}">
+                            <img alt="{{ product.name }}" src="{{ product.image }}" />
+                            </a>
+                        </div>
+                        <div class="price">
+
+                            {% if product.special %}
+                            <div class="{{ product.price != product.special ? 'price-old' : 'price-current' }}">{{ product.price }}</div>
+                            {% if product.price != product.special %}
+                            <div class="price-current">{{ product.special }}</div>
+                            {% if product.percent != 0 %}
+                            <div class="price-current">-{{ product.percent }}%</div>
+                            {% endif %}
+                            {% endif %}
+                            {% else %}
+                            <div class="price-current">{{ product.price }}</div>
+                            {% endif %}
+                        </div>
+                        {% if product.rating >= 0 %}
+                        <div class="star-holder">
+                            <div class="star" data-score="{{product.rating}}"></div>
+                        </div>
+                        {% endif %}
+                        <button class="btn-compare  btn-iconic" onclick="compare.add('{{ product.product_id }}');"></button>
+                    </div>
+                    <div class="body">
+                        <h3><a href="{{ product.href }}">{{ product.name }}</a></h3>
+                        <div class="excerpt">
+                            {{ product.description }}
+                        </div>
+                        <div class="merged-buttons">
+                            <button class="btn-add-to-cart le-btn btn-iconic" onclick="cart.add('{{ product.product_id }}', '1');">to cart</button>
+                            <button class="btn-add-to-wishlist le-btn btn-iconic" onclick="wishlist.add('{{ product.product_id }}');" >wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- <div id="common-home" class="container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> -->
+
+
+{{ footer }}
+
+<script>
+jQuery(document).ready(function($) {
+
+    var maxHeightProduct = 0;
+    $('.product-item').each(function(index, el) {
+        var h = $(this).height();
+        if (h > maxHeightProduct) {
+            maxHeightProduct = h;
+        }
+    });
+    $('.product-item').css('min-height', (maxHeightProduct+10) + 'px');
+    
+    $('.star-holder .star').each(function(index, el) {
+        if ($(this).data('score') == 0) {
+            $(this).children('img:nth-child(1)').css('opacity', '0.2');
+            $(this).children('img:nth-child(2)').css('opacity', '0.2');
+            $(this).children('img:nth-child(3)').css('opacity', '0.2');
+            $(this).children('img:nth-child(4)').css('opacity', '0.2');
+            $(this).children('img:nth-child(5)').css('opacity', '0.2');
+        } else if ($(this).data('score') == 1) {
+            $(this).children('img:nth-child(2)').css('opacity', '0.2');
+            $(this).children('img:nth-child(3)').css('opacity', '0.2');
+            $(this).children('img:nth-child(4)').css('opacity', '0.2');
+            $(this).children('img:nth-child(5)').css('opacity', '0.2');
+        } else if ($(this).data('score') == 2) {
+            $(this).children('img:nth-child(3)').css('opacity', '0.2');
+            $(this).children('img:nth-child(4)').css('opacity', '0.2');
+            $(this).children('img:nth-child(5)').css('opacity', '0.2');
+        } else if ($(this).data('score') == 3) {
+            $(this).children('img:nth-child(4)').css('opacity', '0.2');
+            $(this).children('img:nth-child(5)').css('opacity', '0.2');
+        } else if ($(this).data('score') == 4) {
+            $(this).children('img:nth-child(5)').css('opacity', '0.2');
+        } else if ($(this).data('score') == 5) {
+            $(this).children('img').css('opacity', '1');
+        }
+    });
+});
+</script>

@@ -1,0 +1,55 @@
+<div class="basket" id="cart">
+    <div class="dropdown">
+        <a class="dropdown-toggle" data-hover="dropdown" data-loading-text="{{ text_loading }}" href="{{ cart }}">
+            <div id="cart-total">
+                {{ text_items }}
+            </div>
+        </a>
+        <ul class="dropdown-menu">
+            {% if products or vouchers %} {% for product in products %}
+            <li>
+                <div class="basket-item">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-4">
+                            <div class="thumb">
+                                {% if product.thumb %}
+                                <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a> {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-8">
+                            <div class="title"><a href="{{ product.href }}">{{ product.name }}</a></div>
+                            <div class="price">{{ product.total }}</div>
+                        </div>
+                    </div>
+                    <a class="close-btn" href="#" onclick="cart.remove('{{ product.cart_id }}');return false;" title="{{ button_remove }}"></a>
+                </div>
+            </li>
+            {% endfor %} {% for total in totals %}
+            <li>
+                <div class="basket-item">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-4">
+                            {{ total.title }}
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-8">
+                            {{ total.text }}
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            <li class="checkout">
+                <div class="merged-buttons">
+                    <a href="{{ cart }}" class="btn-add-to-cart le-btn ">{{ text_cart }}</a>
+                    <a href="{{ checkout }}" class="btn-add-to-wishlist le-btn ">{{ text_checkout }}</a>
+                </div>
+            </li>
+            {% else %}
+            <li>
+                <div class="text-center">{{ text_empty }}</div>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
+</div>

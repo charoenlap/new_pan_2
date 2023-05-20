@@ -1,0 +1,94 @@
+
+
+<nav class="hidden-xs visible-sm visible-lg visible-md" id="menuCategory">
+    <ul class="nav">
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brand</a>
+            <ul class="dropdown-menu children">
+                <li style="display:inline-block; margin-right:15px;"><a href="../kappa_thailand/">Kappa Thailand</a></li>
+                {# <li style="display:inline-block; margin-right:15px;"><a href="../arena_thailand/">Arena (Comming Soon)</a></li> #}
+                <li style="display:inline-block; margin-right:15px;"><a href="../heelcare_thailand/">Heel Care</a></li>
+                <li style="display:inline-block; margin-right:15px;"><a href="../arena_thailand/">Arena</a></li>
+                {# <li style="display:inline-block; margin-right:15px;"><a href="#">Heel Care (Comming Soon)</a></li> #}
+            </ul>
+        </li>
+    	{% for category in categories %}
+    	{% if category.children | length > 0 %}
+    	<li class="dropdown">
+    		<a href="#" onclick="window.location.href='{{category.href}}';" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+    		<ul class="dropdown-menu children">
+    			{% for child in category.children %}
+			    <li>
+			    	<a href="#" onclick="window.location.href='{{child.href}}';">{{ child.name }}</a>
+			    	<ul class="products">
+			    		{% for product in child.products %}
+			    		<li><a href="{{ product.href }}"><div><img src="../image/{{ product.image }}" alt=""></div> {{ product.name }}</a></li>
+			    		{% endfor %}
+			    	</ul>
+			    </li>
+    			{% endfor %}
+    		</ul>
+    	</li>
+    	{% else %}
+    	<li class="dropdown">
+    		<a href="#" onclick="window.location.href='{{category.href}}';" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+    	</li>
+    	{% endif %}
+    	{% endfor %}
+    	<li><a href="{{ payment }}">Payment</a></li>
+    </ul>
+</nav>
+<select class="top-drop-menu nav hidden-md hidden-sm visible-xs hidden-lg">
+    {% if categories %}
+    {% for category in categories %}
+    <option value="{{ category.href }}">{{ category.name }}</option>
+    {% endfor %}
+    {% endif %}
+</select>
+
+<script>
+jQuery(document).ready(function($) {
+	$('#menuCategory .dropdown-toggle').hover(function() {
+		cancelCountDown();
+		$('#menuCategory .dropdown').removeClass('open');
+		$(this).parent('.dropdown').addClass('open');
+	}, function() {
+		countDownClearMenu();
+	});
+
+	$('#menuCategory .dropdown-menu.children > li').hover(function() {
+		cancelCountDown();
+		$('#menuCategory .products').removeClass('active');
+		$(this).children('.products').addClass('active');
+	}, function() {
+		countDownClearMenu();
+	});
+
+	var winWidth = $('.top-nav-holder').width();
+	$('#menuCategory .dropdown-menu.children').width(winWidth);
+
+	var cdTimeout;
+
+	function countDownClearMenu() {
+	    cdTimeout = setTimeout(function(){ 
+			$('#menuCategory .products').removeClass('active');
+			$('#menuCategory .dropdown').removeClass('open');
+	    }, 1000);
+	}
+
+	function cancelCountDown() {
+	    clearTimeout(cdTimeout);
+	}
+});
+</script>
+
+<style>
+#menuCategory .dropdown-menu:before { display: none; }
+#menuCategory .dropdown-menu.children { margin-left: 15px; }
+#menuCategory .products { display: none; }
+#menuCategory .products.active { display: inline-block; position: absolute; left: 0; margin-top: 15px; background: #fff; border: 5px solid #e0e1e0; width:100%;  }
+
+#menuCategory .dropdown-menu.children .products > li { width:20%; cursor: pointer; }
+#menuCategory .dropdown-menu.children .products > li > a { width: 100%; display: inline-block; cursor: pointer; }
+</style>

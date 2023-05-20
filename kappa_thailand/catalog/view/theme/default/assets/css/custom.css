@@ -1,0 +1,120 @@
+.owl-item .product-item {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    display: block;
+    border-radius: 0;
+}
+.owl-item .product-item .head, .owl-item .product-item .body {
+	border-radius: 0;
+	border: 5px solid rgba(0, 0, 0, 0.07);
+}
+
+
+
+@media only screen and (min-width: 0px)  {
+	#featured-products .nav-buttons {
+		display: inline-block;
+	}
+}
+@media only screen and (min-width: 1024px)  {
+	#featured-products .nav-buttons {
+		display: none;
+	}
+}
+
+/*color theme*/
+.homeslider #bar{
+	background-color: #0080ff;
+}
+.top-nav-holder .basket-holder .basket .basket-icon svg path{
+	fill: #0080ff;
+}
+.icon-holder .triangle,
+.icon-holder.big .triangle,
+.goto-top,.le-btn,
+.section-footer .footer-column h2 .icon-holder .triangle,
+.social-icons.triangled li .triangle{
+	background-color: #0080ff;
+}
+.merged-buttons button:last-child, .merged-buttons .le-btn:last-child{
+	background-color: #fff !important;
+	color: #000;
+}
+
+
+
+header .top-bar .social-icons a:hover{
+	color: #0080ff;
+}
+.body .merged-buttons button:hover{
+	background-color: #004d99;
+}
+.subscribe-form button:hover{
+	background-color: #004d99;
+}
+.item .caption a:hover{
+	background-color: #004d99;
+}
+ul.dropdown-menu li.checkout .merged-buttons a:hover{
+	background-color: #004d99;
+}
+.social-icons.triangled li:hover .triangle{
+	background-color: #004d99;
+}
+
+
+
+a:hover,
+a:focus,
+a:active {
+  color: #0080ff;
+}
+/*.circular-icon:hover {
+  border-color: #0080ff;
+}
+.circular-icon:hover:before {
+  color: #0080ff;
+}*/
+.le-btn:hover {
+  background-color: #004d99;
+  color: #ffffff;
+}
+.le-btn:focus,
+.le-btn.active,
+.le-btn:active {
+  background-color: #004d99;
+  color: #ffffff;
+}
+
+
+
+/* product gallery */
+.product_galery{
+	width: 360px;
+}
+.product_gallery figure{
+	float: left;
+	margin: 0;
+	padding: 1px;
+	line-height: 0.5;
+	width: 30%;
+}
+.product_gallery figure a{
+	display: inline-block;
+	/*background-color: #fff;*/
+}
+.product_gallery figure img{
+	opacity: .5;
+	width: 100%;
+	float: left;
+	background-color: #000;
+}
+.product_gallery figure img:hover{
+	opacity: 1;
+}
+
+
+.product-item .head .thumb img { right:0; }
+
+#checkout-cart tr td .btn { padding: 6px 15px }

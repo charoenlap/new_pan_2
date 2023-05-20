@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kappa Thailand</title>
+    <base href="{{ base }}" /> {% if description %}
+    <meta name="description" content="{{ description }}" /> {% endif %} {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" /> {% endif %}
+    <script src="{{link_css}}catalog/view/theme/default/assets/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="{{link_css}}catalog/view/theme/default/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <link href="{{link_css}}catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <script src="{{link_css}}catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="{{link_css}}catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> {% for style in styles %}
+    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" /> {% endfor %} {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for script in scripts %}
+    <script src="{{ script }}" type="text/javascript"></script>
+    {% endfor %}
+
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <meta name="robots" content="all">
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/prettyPhoto.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/animate.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/owl.theme.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/yamm.css">
+    <link rel="stylesheet" href="{{link_css}}catalog/view/theme/default/assets/css/stylesheet.css">
+    <link rel="stylesheet" href="catalog/view/theme/default/assets/magnific-popup/magnific-popup.css">
+    <script src="{{link_css}}catalog/view/theme/default/assets/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- css custom -->
+    <link rel="stylesheet" type="text/css" href="{{link_css}}catalog/view/theme/default/assets/css/custom.css?v=1">
+    {# <link rel="stylesheet" href="text/css" href="{{link_css}}catalog/view/theme/default/stylesheet/custom.css"> #}
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/css_browser_selector.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.easing-1.3.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.raty.min.js"></script>
+    <script type="text/javascript" src="{{link_css}}catalog/view/theme/default/assets/js/jquery.lazyload.min.js"></script>
+
+    <script src="{{link_css}}catalog/view/javascript/common.js?a=1" type="text/javascript"></script>
+
+
+    {% for analytic in analytics %} {{ analytic }} {% endfor %}
+     
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '576162170114027');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=576162170114027&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+    {# <div id="preloader">
+        <div id="status">&nbsp;</div>
+        <noscript>JavaScript is off. Please enable to view full site.</noscript>
+    </div> #}
+    <div class="wrapper homepage2">
+        <header>
+            <div class="top-bar">
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6">
+                        <ul class="info-inline">
+                            <li>
+                                <i class="fa fa-phone"></i> {{ phone }}
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i> {{ email }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <ul class="social-icons small">
+                            {% if config_social_facebook != '' %}
+                            <li>
+                                <a href="{{ config_social_facebook }}" class="fa fa-facebook-square"></a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_twitter != '' %}
+                            <li>
+                                <a href="{{ config_social_twitter }}" class="fa fa-twitter-square"></a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_google != '' %}
+                            <li>
+                                <a href="{{ config_social_google }}" class="fa fa-google-plus-square"></a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_instagram != '' %}
+                            <li>
+                                <a href="{{ config_social_instagram }}" class="fa fa-instagram"></a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_line != '' %}
+                            <li>
+                                <a href="{{ config_social_line }}" class="">
+                                    <img src="image/line.png" alt="" style="width:15px;vertical-align: sub;">
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_twitter != '' %}
+                            <li>
+                                <a href="{{ config_social_twitter }}" class="fa fa-twitter"></a>
+                            </li>
+                            {% endif %}
+                            {% if config_social_youtube != '' %}
+                            <li>
+                                <a href="{{ config_social_youtube }}" class="fa fa-youtube-square"></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container header-row">
+                <div class="col-xs-12 col-md-3">
+                    <div class="buttons-holder">
+                        {{ language }}
+                        {# <div class="btn-group le-dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                      engish
+                    </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">turkish</a></li>
+                                <li><a href="#">arabic</a></li>
+                                <li><a href="#">french</a></li>
+                            </ul>
+                        </div> #}
+                        {% if currency %}
+                        <div class="btn-group le-dropdown">
+                            {# <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                <i class="fa fa-usd"></i> usd
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-try"></i> try</a></li>
+                                <li><a href="#"><i class="fa fa-gbp"></i> gbp</a></li>
+                                <li><a href="#"><i class="fa fa-euro"></i> eur</a></li>
+                            </ul> #}
+                            {{ currency }}
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="logo">
+                        <a href="index.php?route=common/home">
+                            <img src="../image/catalog/Logo/kappanewlogo.png" alt="logo" style="height: 70px;" />
+                            <!--  <span>PAN</span> -->
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <ul class="link-list inline">
+                        <li><a href="{{account}}">my account</a></li>
+                        <li><a href="{{wishlist}}">my wishlist</a></li>
+                        {% if logged %}
+                        <li><a href="{{logout}}">log out</a></li>
+                        {% else %}
+                        <li><a href="{{login}}">log in</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="container ">
+                <div class="top-nav-holder">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-8  nav-menu top-menu-holder">
+                            {{ menu }}
+
+                        </div>
+                        <div class="col-xs-12 col-md-3 col-lg-2 no-margin search-holder">
+                            <div class="searchbox">
+                                <a href="" class="fa fa-search search-button">
+
+                                </a>
+                                <div class="field">
+                                    <form>
+                                        <input type="text" data-placeholder="Enter Keyword Here..." />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-3 col-lg-2 basket-holder">
+                            {{cart}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div id="content">
+                <div class="breadcrumb hidden"></div>
+            </div>
+        </div>

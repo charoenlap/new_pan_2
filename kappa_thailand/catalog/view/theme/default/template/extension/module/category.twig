@@ -1,0 +1,28 @@
+<div class="accordion-widget category-accordions widget">
+    <div class="icon-holder small">
+        <i class="fa fa-chain"></i>
+        <span class="triangle"></span>
+    </div>
+    <h2>categories</h2>
+    <div class="accordion">
+        {% for category in categories %}
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a href="{{category.href}}">
+                    {{ category.name }}
+                </a>
+            </div>
+            <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    <ul>
+                        {% if category.children %} {% for child in category.children %}
+                        <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+                        {% endfor %} {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

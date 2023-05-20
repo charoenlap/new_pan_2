@@ -1,0 +1,12 @@
+post
+<br>
+<br>get
+<br>route=extension/payment/bbl_gateway/checkResponse
+<br>type=cmVqZWN0ZWQ=
+<br>Ref=2021122375588
+<br>
+<br>request
+<br>route=extension/payment/bbl_gateway/checkResponse
+<br>type=cmVqZWN0ZWQ=
+<br>Ref=2021122375588
+<br>

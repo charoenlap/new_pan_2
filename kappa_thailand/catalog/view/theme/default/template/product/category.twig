@@ -1,0 +1,165 @@
+{{ header }}
+<section id="breadcrumb">
+    <div class="container">
+        <div class="le-breadcrumb inline">
+            <div class="iconic-nav-bar">
+                <div class="icon-holder">
+                    <i class="fa fa-chain"></i>
+                    <span class="triangle"></span>
+                </div>
+                <div class="bar">
+                    <ul>
+                        {% for breadcrumb in breadcrumbs %}
+                        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="products-grid-sidebar" class="section-products-grid">
+    <div class="container">
+
+        {{column_left}}
+
+        <div class="col-xs-12 col-md-9 ">
+            <div class="row">
+                <div class="mosaic-holder col-xs-12">
+                    {% if thumb or description %}
+                    <div class="mosaic-banner big " style="width:100%;">
+                        {% if thumb %}
+                        <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" style="width:100%;" /> {% endif %} {% if description %}
+                        <div class="caption ">
+                            <h1>
+                                <span class="light ">{{ description }}</span>
+                            </h1>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="controller-nav-bar row">
+                <div class="col-xs-12 col-sm-9 col-md-9">
+                    <select id="input-sort" onchange="location = this.value;" class="ctrl-item selectpicker capital" data-style="btn-inverse">
+                          {% for sorts in sorts %}
+                          {% if sorts.value == '%s-%s'|format(sort, order) %}
+                          <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+                          {% else %}
+                          <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+                          {% endif %}
+                          {% endfor %}
+                    </select>
+                    <div class="ctrl-item inline">{{ text_limit }}
+                        <select class="selectpicker capital" data-width="70px" data-style="btn-inverse" id="input-limit" onchange="location = this.value;">
+                          {% for limits in limits %}
+                          {% if limits.value == limit %}
+                          <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+                          {% else %}
+                          <option value="{{ limits.href }}">{{ limits.text }}</option>
+                          {% endif %}
+                          {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-grid tab-content">
+                <!--grid view starts here-->
+                <div id="grid-view" class="tab-pane active">
+                    <div class="products-holder simple-grid">
+
+                        {% if products %}
+                        
+                           
+                            {% set countRow = 1 %}
+                            {% for i,product in products %}
+                                {% if countRow == 1 %}
+                                <div class="row">
+                                {% endif %}
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                                <div class="product-item">
+                                    <div class="head">
+                                        <div class="">
+                                            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>
+                                        </div>
+                                        {% if product.price %}
+                                        <div class="price">
+                                            {% if not product.special %}
+                                            <div class="price-current">{{ product.price }}</div>
+                                            {% else %}
+                                            <div class="{{ product.price != product.special ? 'price-old' : 'price-current' }}">
+                                                {{ product.price }}
+                                            </div>
+                                            {% if product.price != product.special %}
+                                            
+                                          {% if product.percent != 0 %}
+                                          <div class="price-current">-{{ product.percent }}%</div> 
+                                          {% endif %}
+                                            <div class="price-current">
+                                                {{ product.special }}
+                                            </div>
+                                            {% endif %}
+                                            {% endif %}
+                                        </div>
+                                        {% endif %} {% if product.rating %}
+                                        <div class="star-holder">
+                                            <div class="star" data-score="{{product.rating}}"></div>
+                                        </div>
+                                        {% endif %}
+                                        <button class="btn-compare  btn-iconic" onclick="compare.add('{{ product.product_id }}');"></button>
+                                    </div>
+                                    <div class="body">
+                                        <h3><a href="{{ product.href }}">{{ product.name }} </a></h3>
+                                        <div class="excerpt">{{ product.description }}</div>
+
+                                        <div class="merged-buttons">
+                                            <button class="btn-add-to-cart le-btn btn-iconic " onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');">to cart</button>
+                                            <button class="btn-add-to-wishlist le-btn btn-iconic" onclick="wishlist.add('{{ product.product_id }}');">wishlist</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                {% set countRow = countRow + 1 %}
+                                {% if countRow == 4 or i == (products|length - 1) %}
+                                    </div>
+                                    {% set countRow = 1 %}
+                                {% endif %}
+                            {% endfor %}
+                                {# </div> #}
+                        
+                        <div class="row">
+                            <div class="col-sm-6 text-left">{{ pagination }}</div>
+                            <div class="col-sm-6 text-right">{{ results }}</div>
+                        </div>
+                        {% endif %} {% if not categories and not products %}
+                        <div class="row ">
+                            <div class="col-xs-12 col-sm-12 ">
+                                <p>{{ text_empty }}</p>
+                                <div class="buttons">
+                                    <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+$(document).ready(function() {
+    
+    var maxHeightProduct = 0;
+    $('.product-item').each(function(index, el) {
+        var h = $(this).height();
+        if (h > maxHeightProduct) {
+            maxHeightProduct = h;
+        }
+    });
+    $('.product-item').css('min-height', maxHeightProduct + 'px');
+});
+</script>
+{{ footer }}

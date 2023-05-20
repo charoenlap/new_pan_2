@@ -1,0 +1,10 @@
+post
+<br>
+<br>get
+<br>route=extension/payment/bbl_gateway/checkResponse
+<br>type=cmVqZWN0ZWQ=
+<br>
+<br>request
+<br>route=extension/payment/bbl_gateway/checkResponse
+<br>type=cmVqZWN0ZWQ=
+<br>

@@ -1,0 +1,166 @@
+<section id="newsletter" class="section-newsletter">
+        <div class="container">
+
+        
+          <div class="col-xs-12 col-md-1">
+            <div class="icon-holder big">
+              <i class="fa fa-newspaper-o"></i>
+              <span class="triangle"></span>
+            </div>
+          </div>
+            <div class="col-xs-12 col-md-4">
+            <div class="text">
+              sign up for our newsletter to<br>
+              get best offers and news.
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-7">
+            <form class="subscribe-form">
+              <input data-placeholder="Enter Your Email Here..." class="le-input col-xs-12 col-md-10">
+              <button type="submit" class="le-btn icon-btn fa fa-send"></button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+   
+   <section class="banner-slider wow fadeInUp">
+        <div class="container">
+
+          <a class="btn-next nav-btn circular-icon" href="#"></a>
+          <a class="btn-prev nav-btn circular-icon" href="#"></a>
+
+          <div class="banner-carousel owl-carousel">
+            {% for banner in banner_footer %}
+            <div class="item">
+              <div class="caption">
+                <h1>{{ banner.title }}</h1>
+                <div class="short-tag">
+                  <p>
+                    {{banner.introduction}}
+                  </p>
+                </div>
+                {# <a class="le-btn" href="#">buy now</a> #}
+              </div>
+              <img src="{{ banner.image }}" alt="">
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+      <section class="section-footer">
+    <div class="container">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="footer-column">
+                <h2>
+                    <span class="icon-holder">
+                  <i class="fa fa-info"></i>
+                  <span class="triangle"></span>
+                    </span>
+                    informations
+                </h2>
+                <ul class="footer-links-holder">
+                  {% for information in informations %}
+                    <li><a href="{{information.href}}">{{information.title}}</a></li>  
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="footer-column">
+                <h2>
+                    <span class="icon-holder">
+                  <i class="fa  fa-check"></i>
+                  <span class="triangle"></span>
+                    </span>
+                    customer care
+                </h2>
+                <ul class="footer-links-holder">
+                    <li><a href="{{contact}}">{{text_contact}}</a></li>
+                    <li><a href="{{return}}">{{text_return}}</a></li>
+                    <li><a href="{{sitemap}}">{{text_sitemap}}</a></li>
+                    <li><a href="{{payment}}">{{text_payment}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="footer-column">
+                <h2>
+                    <span class="icon-holder">
+                  <i class="fa  fa-star"></i>
+                  <span class="triangle"></span>
+                    </span>
+                    Other
+                </h2>
+                <ul class="footer-links-holder">
+                    <li><a href="../">{{text_brand}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="footer-column">
+                <h2>
+                    <span class="icon-holder">
+                  <i class="fa  fa-phone"></i>
+                  <span class="triangle"></span>
+                    </span>
+                    get in touch
+                </h2>
+                <p>
+                    <strong>{{store}}</strong>
+                    <br> {{address}}
+                </p>
+                <ul class="social-icons triangled">
+                    {% if config_social_facebook %}
+                    <li><a href="{{config_social_facebook}}" class="fa fa-facebook"></a></li>
+                    {% endif %}
+                    {% if config_social_instagram %}
+                    <li><a href="{{config_social_instagram}}" class="fa fa-instagram"></a></li>
+                    {% endif %}
+                    {% if config_social_youtube %}
+                    <li><a href="{{config_social_youtube}}" class="fa fa-youtube"></a></li>
+                    {% endif %}
+                    {% if config_social_google %}
+                    <li><a href="{{config_social_google}}" class="fa fa-google-plus"></a></li>
+                    {% endif %}
+                    {% if config_social_twitter %}
+                    <li><a href="{{config_social_twitter}}" class="fa fa-twitter"></a></li>
+                    {% endif %}
+                    {% if config_social_line %}
+                    <li><a href="{{config_social_line}}" class="">
+                      <img src="image/line.png" alt="" style="width:15px;vertical-align: sub;">
+                    </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-copyright">
+    <div class="container">
+        <div class="copyright col-xs-12 col-sm-5">
+            <p>
+                <strong>© </strong>. All rights reserved.
+                <!-- <br> Designed and Made by <a href="http://themeforest.net/user/LeAmino?ref=LeAmino">Amin Diary</a> -->
+            </p>
+        </div>
+        <div class="copyright-links col-xs-12 col-sm-7">
+            <ul class="inline">
+                {# <li><a href="#">privacy policy</a></li>
+                <li><a href="#">terms & conditions</a></li>
+                <li><a href="#">site map</a></li> #}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<a class="goto-top" href="#gotop"></a>
+
+    </div>
+    <script type="text/javascript" src="catalog/view/theme/default/assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/default/assets/js/jquery.raty.min.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/default/assets/js/jquery.lazyload.min.js"></script>
+    <script type="text/javascript" src="catalog/view/theme/default/assets/js/script.js"></script>
+</body>
+
+</html>
