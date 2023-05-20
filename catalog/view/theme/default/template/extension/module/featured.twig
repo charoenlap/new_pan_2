@@ -1,0 +1,43 @@
+<!-- FEATURED PRODUCTS -->
+<div class="featured-products">
+    <div class="container">
+        <div class="row">
+            <h5 class="heading"><span>{{ heading_title }}</span></h5>
+            <ul class="filter" data-option-key="filter">
+                <li><a class="selected" href="#filter" data-option-value="*">ทั้งหมด</a></li>
+                {% for category in categories %}
+                <li><a href="#" data-option-value=".category{{category.category_id}}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+            <div id="isotope" class="isotope">
+              {% for product in products %}
+                <div class="isotope-item category{{product.category_id}}">
+                  <a href="{{ product.href }}">
+                    <div class="product-item">
+                        <div class="item-thumb">
+                            {# <div class="badge new">New</div> #}
+                            <img src="{{ product.thumb }}" class="img-responsive" alt="{{ product.name }}" />
+                        </div>
+                        <div class="product-info">
+                            <h4 class="product-title"><a href="#">{{ product.name }}</a></h4>
+                            <span class="product-price">
+                            {% if product.price %}
+                              {% if not product.special %}
+                              {{ product.price }}
+                              {% else %}
+                              <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                              {% endif %}
+                              {# {% if product.tax %}
+                              <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                              {% endif %} #}
+                            {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

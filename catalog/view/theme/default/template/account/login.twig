@@ -1,0 +1,97 @@
+{{ header }}
+
+
+<!-- BREADCRUMBS -->
+<div class="bcrumbs">
+    <div class="container">
+        <ul>
+            {% for breadcrumb in breadcrumbs %}
+            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class="space10"></div>
+
+<!-- MY ACCOUNT -->
+<div class="account-wrap">
+    <div class="container">
+        <div class="row">
+          {{ content_top }}
+          {{ column_left }}
+            <div class="col-sm-12">
+              {% if success %}
+              <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+              {% endif %}
+              {% if error_warning %}
+              <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+              {% endif %}
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <!-- HTML -->
+                <div id="account-id">
+                    <h4 class="account-title"><span class="fa fa-chevron-right"></span>Login</h4>                                                                  
+                    <div class="account-form">
+                        <form class="form-login" action="{{ action }}" method="post" enctype="multipart/form-data">                                        
+                            <ul class="form-list row">
+                                {# <li class="col-md-6 col-sm-12"> 
+                                    <a href="#" class="btn facebook"><i class="fa fa-facebook"></i>Sign in with Facebook</a>
+                                </li>
+                                <li class="col-md-6 col-sm-12"> 
+                                    <a href="#" class="btn twitter"><i class="fa fa-twitter"></i>Sign in with Twitter</a>
+                                </li> #}
+                                <li class="col-md-12 col-sm-12">
+                                    <label >{{entry_email}} <em>*</em></label>
+                                    <input required type="text" class="input-text" name="email" value="{{ email }}" id="input-email">
+                                </li>
+                                <li class="col-md-12 col-sm-12">
+                                    <label >{{entry_password}} <em>*</em></label>
+                                    <input required type="password" class="input-text" name="password" value="{{ password }}" id="input-password">
+                                </li> 
+                                {# <li class="col-md-6 col-sm-12">                                                
+                                    <input class="input-chkbox" type="checkbox">
+                                    <label >Remember me</label>
+                                </li> #}
+                                <li class="col-md-12 col-sm-12 pwd text-right">
+                                    <label > <a href="{{ forgotten }}"> {{text_forgotten}} </a> </label>                                               
+                                </li>
+                            </ul>
+                            {% if redirect %}
+                            <input type="hidden" name="redirect" value="{{ redirect }}" />
+                            {% endif %}
+                            <div class="buttons-set">
+                                <button class="btn-black" type="submit"><span>{{button_login}}</span></button>
+                            </div>
+                        </form>
+                    </div>                                    
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6">
+                <!-- HTML -->
+                <div id="account-id2">
+                    <h4 class="account-title"><span class="fa fa-chevron-right"></span>Create New Account</h4>                                                                  
+                    <div class="account-form create-new-account">
+                        <h3 class="block-title">Signup Today and You'll be able to</h3>
+                        <ul>
+                            <li> <i class="fa fa-edit"></i> Online Order Status</li>
+                            <li> <i class="fa fa-edit"></i> See Ready Hot Deals</li>
+                            <li> <i class="fa fa-edit"></i> Love List</li>
+                            <li> <i class="fa fa-edit"></i> Sign up to receive exclusive news and private sales</li>
+                            <li> <i class="fa fa-edit"></i> Quick Buy Stuffs</li>
+                        </ul>
+                        <div class="buttons-set">
+                            {# <button class="btn-black" type="submit"><span>Create Account</span></button> #}
+                            <a href="{{ register }}" class="btn-black">{{ button_continue }}</a></div>
+                        </div>
+                    </div>                                    
+                </div>
+            </div>
+            
+      {{ content_bottom }}
+      {{ column_right }}
+        </div>
+    </div>
+</div>
+
+{{ footer }}

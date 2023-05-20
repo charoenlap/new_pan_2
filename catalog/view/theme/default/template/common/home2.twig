@@ -1,0 +1,346 @@
+{{ header }}
+
+<div class="content common-home" >
+    <div id="thm-mart-slideshow" class="thm-mart-slideshow">
+        <div class="container">
+            <div id='thm_slider_wrapper' class='thm_slider_wrapper fullwidthbanner-container'>
+                <div id='thm-rev-slider' class='rev_slider fullwidthabanner'>
+                    <ul>
+                        
+                        {% for banner in banners_home %}
+                        <li data-transition='random' data-slotamount='7' data-masterspeed='1000' >
+                        	<img src='{{ banner.image }}' data-bgposition='center top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="slider-image2" />
+                            <div class="info">
+                                {% if banner.topic %}
+                                <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-x='0' data-y='240' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1'
+                                    style='z-index:2;max-width:auto;max-height:auto;white-space:nowrap;'><span>{{ banner.topic }}</span></div>
+                                {% endif %}
+                                {% if banner.title %}
+                                <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-x='0' data-y='300' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1'
+                                    style='z-index:3;max-width:auto;max-height:auto;white-space:nowrap;'><span>{{ banner.title }}</span></div>
+                                {% endif %}
+                                {% if banner.link %}
+                                <div class='tp-caption sfb  tp-resizeme ' data-x='0' data-y='550' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'><a href='{{ banner.link }}' class="buy-btn">Read More <i class="fas fa-caret-right" style="font-size:20px;margin-left:5px;vertical-align:bottom;"></i></a></div>
+                                {% endif %}
+                                {% if banner.introduction %}
+                                <div class='tp-caption Title sft  tp-resizeme ' data-x='0' data-y='420' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4;max-width:auto;max-height:auto;white-space:nowrap;'>{{ banner.introduction }}</div>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ content_top }}
+
+    <div id="content_result" class="container"></div>
+
+    <!-- Welcome to PAN-GROUP ================================================== -->
+    <section class="add-section">
+        <div class="container">
+            <div class="row">
+            	{% for banner in bannerfix %}
+                <div class="home-box">
+                    <div class="box-img">
+                        <a href="{{ banner.link }}"><img src="{{ banner.image }}" alt=""></a>
+                        {# <div class="mask">
+                            <div class="banner-info"><span class="small-text">SUPER DEALS</span>
+                                <span>Hot Collection</span>
+                            </div>
+                        </div> #}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- best Pro Slider -->
+    <section class=" wow bounceInUp animated">
+        <div class="best-pro slider-items-products container">
+            <div class="new_title">
+                <h2>Best Seller</h2>
+            </div>
+            <div class="cate-banner-img"><img src="catalog/view/theme/default/assets/images/category-banner.jpg" alt="Retis lapen casen"></div>
+            <div id="best-seller" class="product-flexslider hidden-buttons">
+                <div class="slider-items slider-width-col4 products-grid">
+                    {% if product_bestseller %}
+                    {% for product in product_bestseller %}
+                    <div class="item">
+                        <div class="item-inner">
+                            <div class="item-img">
+                                <div class="item-img-info">
+                                    <a href="{{ product.href }}" title="Retis lapen casen" class="product-image"><img src="{{ product.image }}" alt="Retis lapen casen"></a>
+                                    {% if product.new %}
+                                    <div class="new-label new-top-left">New</div>
+                                    {% endif %}
+                                    {% if product.special and product.percent > 0 %}
+                                    <div class="new-label new-top-left" style="left:auto;right:10px;">-{{ product.percent }}%</div>
+                                    {% endif %}
+                                    <div class="item-box-hover">
+                                        <div class="box-inner">
+                                            {# <div class="product-detail-bnt"><a href="{{ product.href }}" class="button detail-bnt"><i class="fas fa-search"></i><span> Quick View</span></a></div> #}
+                                            <div class="product-detail-bnt"><a href="{{ product.href }}" class="button detail-bnt"><span> Quick View</span></a></div>
+                                            <div class="actions">
+                                                <span class="add-to-links">
+                                                    {# <a class="link-wishlist" onclick="wishlist.add('{{ product.product_id }}');" title="Add to Wishlist"><i class="fas fa-heart"></i><span> Add to Wishlist</span></a> 
+                                                    <a class="link-compare add_to_compare" onclick="compare.add('{{ product.product_id }}');" title="Add to Compare"><i class="fas fa-exchange-alt"></i><span> Add to Compare</span></a> #}
+                                                    <a class="link-wishlist" onclick="wishlist.add('{{ product.product_id }}');" title="Add to Wishlist"><span> Add to Wishlist</span></a> 
+                                                    <a class="link-compare add_to_compare" onclick="compare.add('{{ product.product_id }}');" title="Add to Compare"><span> Add to Compare</span></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-info">
+                                <div class="info-inner">
+                                    <div class="item-title"><a href="{{ product.href }}" title="Retis lapen casen">{{ product.name }}</a> </div>
+                                    <div class="item-content">
+                                        <div class="rating">
+                                            <div class="ratings">
+                                                <div class="rating-box">
+                                                    <div class="rating" style="width:{{ product.rating }}%"></div>
+                                                </div>
+                                                <p class="rating-links"><a href="#">{{reviews}} Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                            </div>
+                                        </div>
+                                        <div class="item-price">
+                                            <div class="price-box">
+                                                {% if product.special %}
+                                                <span class="special-price">
+                                                    <span class="price">{{ product.price }}</span> 
+                                                    <span class="special">{{ product.special }}</span> 
+                                                </span>
+                                                {% else %}
+                                                <span class="regular-price">
+                                                    <span class="price">{{ product.price }}</span>         
+                                                </span>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="add_cart">
+                                            <button class="button btn-cart" onclick="cart.add('{{ product.product_id }}', '1');" type="button"><span><i class="fas fa-shopping-cart" style="margin:10px 5px;"></i> Add to Cart</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+
+    <!-- Home Lastest Blog Block -->
+    {# <div class="latest-blog wow bounceInUp animated animated container">
+        <div class="new_title">
+            <h2>Top Categories</h2>
+        </div>
+        {% for banner in banner_buttom %}
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+            <div>
+                <a href="{{ banner.href }}"> <img src="{{ banner.image }}" alt="blog image" style="height: 200px;"></a>
+                <div class="blog-info">
+                    <h3><a href="{{ banner.href }}">{{ banner.title }} ></a></h3>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> #}
+
+    <section style="margin-bottom: 50px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="owl-underbanner owl-carousel owl-theme "  >
+                    {% for banner in bottom_ban %}
+                    <div class="item" style="margin:0;">
+                        <img src="{{banner.image}}" alt="" style="width:100%;">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    $(document).ready(function() {
+        $('.owl-underbanner').owlCarousel({
+            items:1,
+            margin:0,
+            autoHeight:true,
+            dots:false,
+            nav:false,
+            autoPlay:3000
+        });
+    }); 
+    </script>
+
+
+    <!-- Home Lastest Blog Block -->
+    <div class="latest-blog wow bounceInUp animated animated container">
+        <div class="new_title">
+            <h2>NEWS</h2>
+        </div>
+        {% for blog in blogs %}
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4 blog-post">
+            <div class="blog_inner">
+                <div class="blog-img">
+                    <a href="{{ blog.link }}"> <img src="{{ blog.image }}" alt="{{ blog.title }}"> </a>
+                    <div class="mask"> <a class="info" href="{{ blog.link }}">Read More</a> </div>
+                </div>
+                <div class="blog-info">
+                    <div class="post-date">
+                        <time class="entry-date" datetime="2015-05-11T11:07:27+00:00">{{ blog.date }}</time>
+                    </div>
+                    <h3><a href="{{ blog.link }}">{{ blog.title }}</a></h3>
+                    <p>{{ blog.description }}</p>
+                    <a class="readmore" href="{{ blog.link }}">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="wow bounceInUp animated">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 intablenoborder">
+                    {{ vdo }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    
+
+    <!-- Logo Brand Block -->
+    <div class="brand-logo wow bounceInUp animated">
+        <div class="container">
+            <div class="row">
+                <div class="logo-brand">
+                    <div class="new_title">
+                        <h2>BRAND</h2>
+                    </div>
+                    <section>
+                        <div class="container">
+                            <div class="row">
+                                <br>
+                                {% for key,banner in banner_buttom %}
+                                <div class="col-md-3 col-sm-3 pad0">
+                                    <div class="link_hover">
+                                        <img src="{{ banner.image }}" class="image">
+                                        <div class="middle hoverbutton">
+                                            <div class="box">
+                                                <div class="text">
+<!--                                                     {% if key == 2 %}
+                                                    <span>Coming Soon</span>
+                                                    {% else %}
+                                                    <a href="{{ banner.href }}" class="btn">{{ banner.title != '' ? banner.title : '' }}</a>
+                                                    {% endif %} -->
+                                                    <a href="{{ banner.href }}" class="btn">{{ banner.title != '' ? banner.title : '' }}</a>
+                                                </div>
+                                                <div class="overlay"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <br>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{ content_bottom }}
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#thm-rev-slider').show().revolution({
+            dottedOverlay: 'none',
+            delay: 5000,
+            startwidth: 1920,
+            startheight: 900,
+
+            hideThumbs: 200,
+            thumbWidth: 200,
+            thumbHeight: 50,
+            thumbAmount: 2,
+
+            navigationType: 'thumb',
+            navigationArrows: 'solo',
+            navigationStyle: 'round',
+
+            touchenabled: 'on',
+            onHoverStop: 'on',
+
+            swipe_velocity: 0.7,
+            swipe_min_touches: 1,
+            swipe_max_touches: 1,
+            drag_block_vertical: false,
+
+            spinner: 'spinner0',
+            keyboardNavigation: 'off',
+
+            navigationHAlign: 'center',
+            navigationVAlign: 'bottom',
+            navigationHOffset: 0,
+            navigationVOffset: 20,
+
+            soloArrowLeftHalign: 'left',
+            soloArrowLeftValign: 'center',
+            soloArrowLeftHOffset: 20,
+            soloArrowLeftVOffset: 0,
+
+            soloArrowRightHalign: 'right',
+            soloArrowRightValign: 'center',
+            soloArrowRightHOffset: 20,
+            soloArrowRightVOffset: 0,
+
+            shadow: 0,
+            fullWidth: 'on',
+            fullScreen: 'on',
+
+            stopLoop: 'off',
+            stopAfterLoops: -1,
+            stopAtSlide: -1,
+
+            shuffle: 'off',
+
+            autoHeight: 'on',
+            forceFullWidth: 'off',
+            fullScreenAlignForce: 'off',
+            minFullScreenHeight: 0,
+            hideNavDelayOnMobile: 1500,
+
+            hideThumbsOnMobile: 'off',
+            hideBulletsOnMobile: 'off',
+            hideArrowsOnMobile: 'off',
+            hideThumbsUnderResolution: 0,
+
+            hideSliderAtLimit: 0,
+            hideCaptionAtLimit: 0,
+            hideAllCaptionAtLilmit: 0,
+            startWithSlide: 0,
+            fullScreenOffsetContainer: ''
+        });
+    });
+</script>
+<script type="text/javascript">
+    function HideMe() {
+        jQuery('.popup1').hide();
+        jQuery('#fade').hide();
+    }
+</script>
+{{ footer }}

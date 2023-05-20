@@ -1,0 +1,95 @@
+{{ header }}
+
+
+<!-- BREADCRUMBS -->
+<div class="bcrumbs">
+    <div class="container">
+        <ul>
+            {% for breadcrumb in breadcrumbs %}
+            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="space10"></div>
+
+<!-- BLOG CONTENT -->
+<div class="blog-content">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-sm-4">
+                <div class="contact-info space50">
+                    <h5 class="heading space40"><span>Contact Us</span></h5>
+                    <div class="media-list">
+                        <div class="media">
+                            <i class="pull-left fa fa-home"></i>
+                            <div class="media-body">
+                                <strong>Address:</strong><br>
+                                611/210-213 ซ.วัดจันทร์ใน บางโคล่ บางคอแหลม กรุงเทพฯ 10120
+                            </div>
+                        </div>
+                        <div class="media">
+                            <i class="pull-left fa fa-phone"></i>
+                            <div class="media-body">
+                                <strong>Telephone:</strong><br>
+                                091-890-3797
+                            </div>
+                        </div>
+                        <div class="media">
+                            <i class="pull-left fa fa-envelope-o"></i>
+                            <div class="media-body">
+                                <strong>E-mail:</strong><br>
+                                    sportstownonline.div@ba-group.in.th
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+            </aside>
+            <aside class="col-sm-8">
+                <div class="google-map space50">
+                    {# <div id="map-canvas"></div> #}
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31011.356658366338!2d100.517704!3d13.693019!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298a8a747a68f%3A0xffbd08d0a12490d1!2z4Lia4Lij4Li04Lip4Lix4LiXIOC4muC4suC4h-C4geC4reC4geC4o-C4seC4muC5gOC4muC4reC4o-C5jOC4lOC4tOC5gOC4p-C4peC4peC4reC4m-C5gOC4oeC4meC4leC5jOC5gOC4iuC5h-C4meC5gOC4leC4reC4o-C5jCDguIjguLPguIHguLHguJQ!5e0!3m2!1sen!2sus!4v1680534917941!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </aside>
+
+            <div class="clearfix"></div>
+            <div class="col-md-12">     
+                <h5 class="heading space40"><span>Contact Form</span></h5>                        
+                <form action="{{ action }}" id="contactForm" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 space20">
+                            <input name="name" id="name" class="input-md form-control" placeholder="{{ entry_name }} *" maxlength="100" required type="text">
+                            {% if error_name %}
+                            <div class="text-danger">{{ error_name }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 space20">
+                            <input name="email" id="email" class="input-md form-control" placeholder="Email *" maxlength="100" required type="email">
+                            {% if error_email %}
+                            <div class="text-danger">{{ error_email }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="space20">
+                        <textarea name="enquiry" id="text" class="input-md form-control" rows="6" placeholder="{{ entry_enquiry }}" required maxlength="400"></textarea>
+                        {% if error_enquiry %}
+                        <div class="text-danger">{{ error_enquiry }}</div>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="btn-black">
+                        Send a Message
+                    </button>
+                </form>
+                <div class="space60"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clearfix space20"></div>
+{{ footer }}

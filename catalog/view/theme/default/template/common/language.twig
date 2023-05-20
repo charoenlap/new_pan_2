@@ -1,0 +1,10 @@
+{% if languages|length > 1 %}
+<div class="tbr-info">
+    <span><img src="catalog/language/{{ code }}/{{ code }}.png" alt="" />&nbsp;{{code}} <i class="fa fa-caret-down"></i></span>
+    <div class="tbr-inner">
+      {% for language in languages %}
+      <a href="{{ action }}&code={{language.code}}&redirect={{redirect}}" class="change_language" data-code="{{ language.code }}"><img src="catalog/language/{{ language.code }}/{{ language.code }}.png" alt="{{ language.name }}" />{{ language.name }}</a>
+      {% endfor %}
+    </div>
+</div>
+{% endif %}

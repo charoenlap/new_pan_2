@@ -1,0 +1,80 @@
+.special-price .price {
+	font-weight: normal;
+	text-decoration: line-through;
+	color:#ccc;
+}
+.special-price .special {
+	font-weight: bold;
+	color:#ee0520;
+}
+
+
+.logo img {
+	height: 50px;
+	background: #fff;
+}
+
+.radio.radioborder {
+	border:1px solid #ddd; 
+	/*padding: 5px 10px;*/
+	text-align: center;
+	width:40px;
+	height: 40px;
+}
+.radio.radioborder.selected {
+	border:1px solid #333;
+	background: #333;
+}
+.radio.radioborder label {
+	padding:0;
+	display: table;
+	width:40px;
+	height: 40px;
+}
+.radio.radioborder label span {
+	display: table-cell;
+	vertical-align: middle;
+	color:#333;
+}
+.radio.radioborder.selected label span {
+	color:#fff;
+}
+.radio.radioborder input[type=radio] {
+	opacity: 0;
+	width:0;
+	padding: 0;
+	margin: 0;
+}
+
+
+.clear {
+	clear:both;
+}
+
+#product .radio label span {
+	width: 100%;
+}
+#product .radio.disabled {
+	background:#f8f8f8;
+	color:#ccc;
+}
+#product .radio.disabled label span {
+	color:#ccc;
+}
+#product button#button-cart::before {
+	content: "";
+	padding: 0;
+}
+.product-view .product-shop .add-to-box .btn-cart {
+	padding:7px 10px !important;
+}
+.product-view .product-shop .add-to-box .btn-cart span i {
+	margin: 0 5px 0 7px;
+}
+
+
+/* edit */
+#nav.active_mobile {
+	background: #333;
+}
+

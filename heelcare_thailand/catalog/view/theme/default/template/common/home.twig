@@ -1,0 +1,313 @@
+{{ header }}
+<div class="banner">
+    <div class="main-banner">
+        {% for banner in banners_home %}
+        <div class="banner-1"> <img src="{{ banner.image }}" alt="Eshoper">
+            <div class="banner-detail">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9 col-xs-8">
+                            {# <div class="banner-detail-inner">
+                                <span class="slogan">{{ banner.topic }}</span>
+                                <h1 class="banner-title">{{ banner.title }}</h1>
+                                <span class="offer">{{ banner.introduction }}</span>
+                            </div> #}
+                            {% if banner.link %}
+                            <a class="btn btn-color big" href="{{ banner.link }}">Shop Now!</a>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-3 col-xs-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+{# <section class="ptb-95">
+    <div class="container">
+        <div class="sub-banner-block center-sm">
+            <div class="row mlr_-20">
+                {% for brand in brands %}
+                <div class="col-md-3 col-sm-3 col-xs-3 plr-20">
+                    <div class="sub-banner sub-banner{{loop.index}} text-center">
+                        {% if brand.link %}
+                        <a href="{{ brand.link }}">
+                        {% endif %}
+                            <img src="{{ brand.image }}" alt="{{ brand.title }}" >
+                        {% if brand.link %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section> #}
+
+
+
+<section class="our-cate-bg">
+    <div class="">
+        <div class="container">
+            <div class="row mt-60">
+                <div class="col-xs-12">
+                    <div class="heading-part align-center mb-30">
+                        <h2 class="main_title"><span>Our Categories</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row our-cate mb-60">
+                <div class="col-md-12">
+                    <div id="our-sell-pro" class="owl-carousel sell-pro align-center">
+                        {% for category in categories %}
+                        <div class="item ">
+                            <div class="item-inner">
+                                {% if category.image %}
+                                <a href="{{ category.href }}">
+                                    <img src="{{ category.image }}" alt="{{ category.name }}">
+                                </a>
+                                {% else %}
+                                <a href="{{ category.href }}">
+                                    <img src="catalog/view/theme/default/assets/images/cate_{{ loop.index }}.jpg" alt="{{ category.name }}">
+                                </a>
+                                {% endif %}
+                                <div class="cate-detail">
+                                    <a href="{{ category.href }}">{{ category.name }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="perellex-banner"  style="background:rgba(0, 0, 0, 0) url('{{banner_under.image}}') no-repeat fixed center center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-0"></div>
+                <div class="col-sm-8 col-xs-12">
+                    <div class="perellex-delail ptb-95 align-center">
+                        {% if banner_under.topic %}
+                            <div class="perellex-offer mtb-20">{{banner_under.topic}}</div>
+                            <span class="line-bottom"></span>
+                        {% endif %}
+                        {% if banner_under.title %}
+                            <div class="perellex-title ">{{banner_under.title}}</div>
+                        {% endif %}
+                        {% if banner_under.introduction %}
+                            <div class="perellex-sub-title ">{{banner_under.introduction}}</div>
+                        {% endif %}
+                        <a class="btn btn-color big">Shop Now!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ptb-95">
+    <div class="cat-block">
+        <div class="container">
+            <div class="row mlr_-25">
+                <div class="col-sm-6 plr-25">
+                    <div class="product-slider owl-slider mb-xs-30">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="heading-part mb-30">
+                                    <h2 class="">Best seller<span></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mlr_-20">
+                            <div class="owl-carousel best-seller-pro">
+                                
+                                {% for product in firsthalf %}
+                                <div class="item plr-20">
+                                    <div class="cat-box">
+                                        <div class="cat-box-inner">
+                                            <ul>
+                                                <li>
+                                                    <div class="pro-media">
+                                                        <a href="{{product.href}}"><img src="{{product.image}}" alt="Eshoper"></a>
+                                                    </div>
+                                                    <div class="pro-detail-info">
+                                                        <div class="rating-summary-block">
+                                                            <div title="{{product.rating}}%" class="rating-result">
+                                                                <span style="width:{{product.rating}}%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{{product.href}}">{{product.name}}</a>
+                                                        <div class="price-box">
+                                                            {% if product.special %}
+                                                            <span class="special">{{product.special}}</span>
+                                                            <del class="price">{{product.price}}</del>
+                                                            <span class="price" style="color:red;">SALE {{product.percent}}%</span>
+                                                            {% else %}
+                                                            <span class="price">{{product.price}}</span>        
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="cart-link">
+                                                            <form>
+                                                                <button type="button" title="Add to Cart" onclick="cart.add('{{ product.product_id }}', '1');"><span></span>Add To Cart</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% if secondhalf[loop.index].image %}
+                                                <li>
+                                                    <div class="pro-media">
+                                                        <a href="{{secondhalf[loop.index].href}}"><img src="{{secondhalf[loop.index].image}}" alt="Eshoper"></a>
+                                                    </div>
+                                                    <div class="pro-detail-info">
+                                                        <div class="rating-summary-block">
+                                                            <div title="{{secondhalf[loop.index].rating}}%" class="rating-result">
+                                                                <span style="width:{{secondhalf[loop.index].rating}}%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{{secondhalf[loop.index].href}}">{{secondhalf[loop.index].name}}</a>
+                                                        <div class="price-box">
+                                                            {% if secondhalf[loop.index].special %}
+                                                            <span class="special">{{secondhalf[loop.index].special}}</span>
+                                                            <del class="price">{{secondhalf[loop.index].price}}</del>
+                                                            <span class="price" style="color:red;">SALE {{secondhalf[loop.index].percent}}%</span>
+                                                            {% else %}
+                                                            <span class="price">{{secondhalf[loop.index].price}}</span>        
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="cart-link">
+                                                            <form>
+                                                                <button title="Add to Cart" type="button" onclick="cart.add('{{ secondhalf[loop.index].product_id }}', '1');"><span></span>Add To Cart</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 plr-25">
+                    <div class="product-slider owl-slider">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="heading-part mb-30">
+                                    <h2 class="">Special Products<span></span></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mlr_-20">
+                            <div class="owl-carousel best-seller-pro">
+                                
+                                {% for product in firsthalf2 %}
+                                <div class="item plr-20">
+                                    <div class="cat-box">
+                                        <div class="cat-box-inner">
+                                            <ul>
+                                                <li>
+                                                    <div class="pro-media">
+                                                        <a href="{{product.href}}"><img src="{{product.image}}" alt="Eshoper"></a>
+                                                    </div>
+                                                    <div class="pro-detail-info">
+                                                        <div class="rating-summary-block">
+                                                            <div title="{{product.rating}}%" class="rating-result">
+                                                                <span style="width:{{product.rating}}%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{{product.href}}">{{product.name}}</a>
+                                                        <div class="price-box">
+                                                            {% if product.special %}
+                                                            <span class="special">{{product.special}}</span>
+                                                            <del class="price">{{product.price}}</del>
+                                                            <span class="price" style="color:red;">SALE {{product.percent}}%</span>
+                                                            {% else %}
+                                                            <span class="price">{{product.price}}</span>        
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="cart-link">
+                                                            <form>
+                                                                <button type="button" title="Add to Cart" onclick="cart.add('{{ product.product_id }}', '1');"><span></span>Add To Cart</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% if secondhalf2[loop.index].image %}
+                                                <li>
+                                                    <div class="pro-media">
+                                                        <a href="{{secondhalf2[loop.index].href}}"><img src="{{secondhalf2[loop.index].image}}" alt="Eshoper"></a>
+                                                    </div>
+                                                    <div class="pro-detail-info">
+                                                        <div class="rating-summary-block">
+                                                            <div title="{{secondhalf2[loop.index].rating}}%" class="rating-result">
+                                                                <span style="width:{{secondhalf2[loop.index].rating}}%"></span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="{{secondhalf2[loop.index].href}}">{{secondhalf2[loop.index].name}}</a>
+                                                        <div class="price-box">
+                                                            {% if secondhalf2[loop.index].special %}
+                                                            <span class="special">{{secondhalf2[loop.index].special}}</span>
+                                                            <del class="price">{{secondhalf2[loop.index].price}}</del>
+                                                            <span class="price" style="color:red;">SALE {{secondhalf2[loop.index].percent}}%</span>
+                                                            {% else %}
+                                                            <span class="price">{{secondhalf2[loop.index].price}}</span>        
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="cart-link">
+                                                            <form>
+                                                                <button title="Add to Cart" type="button" onclick="cart.add('{{ secondhalf2[loop.index].product_id }}', '1');"><span></span>Add To Cart</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    /* ------------ Newslater-popup JS Start ------------- */
+    $(window).load(function() {
+        // $.magnificPopup.open({
+        //     items: {
+        //         src: '#newslater-popup'
+        //     },
+        //     type: 'inline'
+        // }, 0);
+    });
+    /* ------------ Newslater-popup JS End ------------- */
+</script>
+<!-- <div id="common-home" class="container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> -->
+{{ footer }}

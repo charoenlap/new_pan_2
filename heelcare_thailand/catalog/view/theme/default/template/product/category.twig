@@ -1,0 +1,209 @@
+{{ header }}
+<!-- BANNER STRAT -->
+<div class="banner inner-banner1 ">
+    <div class="container">
+        <section class="banner-detail center-xs">
+            <h1 class="banner-title">Shop {{ heading_title }}</h1>
+            <div class="bread-crumb right-side float-none-xs">
+                <ul>
+                    {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- BANNER END -->
+
+<!-- CONTAIN START -->
+<section class="ptb-95">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 mb-sm-30 sidebar-col">
+                <div class="sidebar-block">
+                    <div class="sidebar-box listing-box mb-40"> <span class="opener plus"></span>
+                        <div class="sidebar-title">
+                            <h3>Categories</h3> <span></span>
+                        </div>
+                        <div class="sidebar-contant">
+                            <ul>
+                            {% for category in left_categories %}
+                                <li><a class="{{ category.category_id == category_id ? 'active' }}" href="{{ category.href }}">{{ category.name }}</a></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-box mb-40 visible-md visible-lg">
+                        <a href="#">
+                            <img src="catalog/view/theme/default/assets/images/cate_1.jpg" alt="Eshoper">
+                        </a>
+                    </div>
+                    <!-- <div class="sidebar-box sidebar-item"> <span class="opener plus"></span>
+                        <div class="sidebar-title">
+                            <h3>Best Seller</h3> <span></span>
+                        </div>
+                        <div class="sidebar-contant">
+                            <ul>
+                                <li>
+                                    <div class="pro-media">
+                                        <a><img alt="T-shirt" src="catalog/view/theme/default/assets/images/1.jpg"></a>
+                                    </div>
+                                    <div class="pro-detail-info"> <a>Black African Print</a>
+                                        <div class="rating-summary-block">
+                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
+                                        </div>
+                                        <div class="price-box"> <span class="price">$80.00</span> </div>
+                                        <div class="cart-link">
+                                            <form>
+                                                <button title="Add to Cart">Add To Cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pro-media">
+                                        <a><img alt="T-shirt" src="catalog/view/theme/default/assets/images/1.jpg"></a>
+                                    </div>
+                                    <div class="pro-detail-info"> <a>Black African Print</a>
+                                        <div class="rating-summary-block">
+                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
+                                        </div>
+                                        <div class="price-box"> <span class="price">$80.00</span> </div>
+                                        <div class="cart-link">
+                                            <form>
+                                                <button title="Add to Cart">Add To Cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="pro-media">
+                                        <a><img alt="T-shirt" src="catalog/view/theme/default/assets/images/1.jpg"></a>
+                                    </div>
+                                    <div class="pro-detail-info"> <a>Black African Print</a>
+                                        <div class="rating-summary-block">
+                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
+                                        </div>
+                                        <div class="price-box"> <span class="price">$80.00</span> </div>
+                                        <div class="cart-link">
+                                            <form>
+                                                <button title="Add to Cart">Add To Cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9 content-col">
+                <div class="inner-banner2 mb-40 visible-md visible-lg">
+                    <a href="#">
+                        {% if thumb or description %}
+                        {% if thumb %}
+                            <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" />
+                            {% endif %} {% if description %}
+                            <p>{{ description }}</p>
+                            {% endif %}
+                        {% endif %}
+                    </a>
+                </div>
+                <div class="shorting mb-30">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="short-by float-right-sm"> <span>Sort By</span>
+                                <div class="select-item">
+                                    <select>
+                                        <option value="" selected="selected">Name (A to Z)</option>
+                                        <option value="">Name(Z - A)</option>
+                                        <option value="">price(low&gt;high)</option>
+                                        <option value="">price(high &gt; low)</option>
+                                        <option value="">rating(highest)</option>
+                                        <option value="">rating(lowest)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="show-item right-side float-left-sm"> <span>Show</span>
+                                <div class="select-item">
+                                    <select>
+                                        <option value="" selected="selected">24</option>
+                                        <option value="">12</option>
+                                        <option value="">6</option>
+                                    </select>
+                                </div>
+                                <span>Per Page</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if products %}
+                <div class="product-listing">
+                    <div class="inner-listing">
+                        <div class="row mlr_-20">
+                            {% for product in products %}
+                            <div class="col-md-4 col-xs-6 plr-20 mb-30">
+                                <div class="product-item">
+                                    <div class="product-image">
+                                        <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>
+                                        <div class="product-detail-inner">
+                                            <div class="detail-inner-left left-side">
+                                                <ul>
+                                                    <li class="pro-cart-icon">
+                                                        <button type="button" title="Add to Cart" onclick="cart.add('{{ product.product_id }}', '1');"><span></span>{{ button_cart }}</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="detail-inner-left right-side">
+                                                <ul>
+                                                    <li class="pro-wishlist-icon active">
+                                                        <a href="#" title="Wishlist" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"></a>
+                                                    </li>
+                                                    <li class="pro-compare-icon">
+                                                        <a href="#" title="Compare" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-item-details">
+                                        <div class="product-item-name"> <a href="{{ product.href }}">{{ product.name }} </a> </div>
+                                        <div class="price-box">
+                                            {% if product.price %} {% if not product.special %} <span class="price" {{ product.price }}</span> {% else %} <span class="price">{{ product.special }}</span> <del class="price old-price">{{ product.price }}</del>                                            {% endif %}{% endif %}
+                                        </div>
+                                        <div class="rating-summary-block right-side">
+                                            <div title="{{product.rating}}%" class="rating-result"> <span style="width:{{product.rating}}%"></span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                {{ pagination }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                {{ results }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %} {% if not categories and not products %}
+                <p>{{ text_empty }}</p>
+                <div class="buttons">
+                    <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ footer }}

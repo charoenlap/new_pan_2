@@ -1,0 +1,42 @@
+{{ header }} 
+<div class="page-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-title">
+                    <h2>{{ heading_title }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BEGIN Main Container -->
+
+<div id="information-blog" class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+    <div class="main container">
+        <div class="std">
+            <div class="wrapper_bl" style="margin-top: 1px;">
+                <div class="form_background">
+                    {{ column_left }} 
+                    {% if column_left and column_right %} 
+                      {% set class = 'col-sm-6' %} 
+                    {% elseif column_left or column_right %} 
+                      {% set class = 'col-sm-9' %} 
+                    {% else %} 
+                      {% set class = 'col-sm-12' %} 
+                    {% endif %}
+                    <div id="content" class="{{ class }}">{{ content_top }}
+                      <img src="{{ image }}" alt="" class="img-responsive" style="margin:0 auto;">
+                      <h1>{{ heading_title }}</h1>
+                      {{ description }}
+
+                      {{ content_bottom }}
+                    </div>
+                    {{ column_right }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ footer }}
+

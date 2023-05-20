@@ -1,0 +1,63 @@
+
+<!-- NEW ARRIVALS -->
+<div class="product-widgets">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <h5 class="heading2 space40"><span>{{text_last}}</span></h5>
+                <div class="product-carousel">
+                    {% for product in products_last %}
+                    <div class="pc-wrap">
+                        <div class="product-item">
+                            <div class="item-thumb">
+                                <img src="{{ product.thumb }}" class="img-responsive" alt="{{ product.name }}" />
+                                <div class="overlay-rmore fa fa-search quickview" data-toggle="modal"
+                                    data-target="#myModal" data-id="{{product.product_id}}"></div>
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                                <span class="product-price">
+                                {% if not product.special %}
+                                    {{ product.price }}
+                                {% else %} 
+                                    <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> 
+                                {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <h5 class="heading2 space40"><span>{{text_best}}</span></h5>
+                <div class="product-carousel2">
+                    {% for product in products_best %}
+                    <div class="pc-wrap">
+                        <div class="product-item">
+                            <div class="item-thumb">
+                                <img src="{{ product.thumb }}" class="img-responsive" alt="{{ product.name }}" />
+                                <div class="overlay-rmore fa fa-search quickview" data-toggle="modal"
+                                    data-target="#myModal" data-id="{{product.product_id}}"></div>
+                            </div>
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                                <span class="product-price">
+                                {% if not product.special %}
+                                    {{ product.price }}
+                                {% else %} 
+                                    <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> 
+                                {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="space30 clearfix"></div>
+

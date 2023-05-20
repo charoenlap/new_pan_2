@@ -1,0 +1,26 @@
+<!-- BLOG -->
+e<div class="home-blog">
+    <div class="container">
+        <h5 class="heading space40"><span>ข่าวสาร และ โปรโมชั่น</span></h5>
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-4 col-sm-4">
+                <article class="home-post text-center">
+                    <div class="post-thumb">
+                        <a href="#">
+                            <img src="{{blog.image}}" class="img-responsive" alt="{{blog.title}}" />
+                        </a>
+                    </div>
+                    <div class="post-excerpt">
+                        <h4><a href="#">{{blog.title}}</a></h4>
+                        <div class="hp-meta">
+
+                        </div>
+                        <p>{{blog.description}} [..]</p>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

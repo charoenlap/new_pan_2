@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }}</title>
+    <base href="{{ base }}" /> {% if description %}
+    <meta name="description" content="{{ description }}" /> {% endif %} {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" /> {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/fotorama.css">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/custom.css?v=1">
+    <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/assets/css/responsive.css"> {% for style in styles %}
+    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" /> {% endfor %}
+    <script src="catalog/view/theme/default/assets/js/jquery-1.12.3.min.js"></script>
+    <script src="catalog/view/theme/default/assets/js/jquery-ui.min.js"></script>
+    <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    {% for script in scripts %}
+    <script src="{{ script }}" type="text/javascript"></script>
+    {% endfor %}
+    <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+    {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}" /> {% endfor %} {% for analytic in analytics %} {{ analytic }} {% endfor %}
+
+
+
+    <!-- <meta charset="UTF-8" />
+
+  
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+ -->
+ 
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '576162170114027');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=576162170114027&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+    <div class="se-pre-con"></div>
+    <div id="newslater-popup" class="mfp-hide white-popup-block open align-center">
+        <div class="nl-popup-main">
+            <div class="nl-popup-inner">
+                <div class="newsletter-inner">
+                    <span>Sign up & get 10% off</span>
+                    <h2 class="main_title">Subscribe Emails</h2>
+                    <form>
+                        <input type="email" placeholder="Email Here...">
+                        <button class="btn-black" title="Subscribe">Subscribe</button>
+                    </form>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <!-- HEADER START -->
+        <header class="navbar navbar-custom " id="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="navbar-header">
+                                <a class="navbar-brand page-scroll" href="#"> <img alt="Eshoper" src="catalog/view/theme/default/assets/images/logo.png"> </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6 right-side">
+                            <div class="right-side float-left-xs header-right-link">
+                                <ul>
+                                    <li class="search-box">
+                                        <a><span></span></a>
+                                    </li>
+                                    <li class="account-icon"> <a href="#"><span></span></a>
+                                        <div class="header-link-dropdown account-link-dropdown">
+                                            <ul class="link-dropdown-list">
+                                                <li> <span class="dropdown-title">Default welcome msg!</span>
+                                                    <ul>
+                                                        <li><a href="{{ login }}">Sign In</a></li>
+                                                        <li><a href="{{ register }}">Create an Account</a></li>
+                                                    </ul>
+                                                </li>
+                                                {{ language }}
+                                                {# <li> <span class="dropdown-title">Language :</span>
+                                                    <ul>
+                                                        <li><a class="active" href="#">English</a></li>
+                                                        <li><a href="#">French</a></li>
+                                                        <li><a href="#">German</a></li>
+                                                    </ul>
+                                                </li> #}
+                                                {{ currency }}
+                                                {# <li> <span class="dropdown-title">Currency :</span>
+                                                    <ul>
+                                                        <li><a class="active" href="#">USD</a></li>
+                                                        <li><a href="#">AUD</a></li>
+                                                        <li><a href="#">EUR</a></li>
+                                                    </ul>
+                                                </li> #}
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    {{ cart }}
+                                </ul>
+                            </div>
+                            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"><i class="fa fa-bars"></i></button>
+                        </div>
+                        <div class="col-md-6 col-sm-12 position-s left-side float-none-sm">
+                            <div class="">
+                                <div id="menu" class="navbar-collapse collapse">
+                                    {{ menu }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="sidebar-search-wrap">
+            <div class="sidebar-table-container">
+                <div class="sidebar-align-container">
+                    <div class="search-closer right-side"></div>
+                    <div class="search-container">
+                        {# <form method="get" id="search-form">
+                            <input type="text" id="s" class="search-input" name="s" placeholder="Start Searching">
+                        </form>
+                        <span>Search and Press Enter</span> #}
+                        {{ search }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- HEADER END -->
+        <div style="position: absolute; width: 100%; z-index: 1;top: 130px;">
+            <div id="content">
+                <div class="breadcrumb hidden"></div>
+            </div>
+        </div>

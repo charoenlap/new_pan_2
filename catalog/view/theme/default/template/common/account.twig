@@ -1,0 +1,13 @@
+<div class="tbr-info">
+    <span>Account <i class="fa fa-caret-down"></i></span>
+    <div class="tbr-inner">
+        {% if logged %}
+        <a href="{{account}}">My Account</a>
+        <a href="{{wishlist}}">{{text_wishlist}}</a>
+        <a href="{{shopping_cart}}">Checkout</a>
+        <a href="{{logout}}">Logout</a>
+        {% else %}
+        <a href="{{login}}">Login</a>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,50 @@
+{{ header }}
+
+<!-- BREADCRUMBS -->
+<div class="bcrumbs">
+    <div class="container">
+        <ul>
+            {% for breadcrumb in breadcrumbs %}
+            <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="space10"></div>
+
+<div class="main-container col1-layout wow bounceInUp animated animated" style="visibility: visible;">
+    <div class="main container">
+        <div class="std">
+            <div class="wrapper_bl" style="margin-top: 1px;">
+                <div class="form_background">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p class="text-center">{{ text_message }}</p>
+                            <br>
+                            <p class="text-center">{{ text_confirmpayment != '' ? text_confirmpayment : '' }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{#
+<div id="common-success" class="container">
+    <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="row">{{ column_left }} {% if column_left and column_right %} {% set class = 'col-sm-6' %} {% elseif column_left or column_right %} {% set class = 'col-sm-9' %} {% else %} {% set class = 'col-sm-12' %} {% endif %}
+        <div id="content" class="{{ class }}">{{ content_top }}
+            <h1>{{ heading_title }}</h1>
+            {{ text_message }}
+            <div class="buttons">
+                <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+            </div>
+            {{ content_bottom }}</div>
+        {{ column_right }}</div>
+</div> #} {{ footer }}
