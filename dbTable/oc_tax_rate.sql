@@ -1,0 +1,1 @@
+INSERT INTO `oc_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`, `date_added`, `date_modified`) VALUES (88, 6, 'Vat thailand', 7.0000, 'P', '2018-04-12 13:48:52', '2018-04-17 17:13:01');
