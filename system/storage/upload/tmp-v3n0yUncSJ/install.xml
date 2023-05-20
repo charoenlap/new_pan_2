@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <code>tltblog-5-OC3.0</code>
+    <name>TLT Blog</name>
+    <version>5.1.5</version>
+    <author>Taiwanleaftea.com</author>
+    <link>https://taiwanleaftea.com.com</link>
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search trim="true" index="0"><![CDATA[
+			if ($catalog) {
+            ]]></search>
+            <add position="before" trim="false" offset="0"><![CDATA[
+			$tltblog = array();
+			
+			if ($this->user->hasPermission('access', 'extension/tltblog/tltblog')) {
+				$tltblog[] = array(
+					'name'     => $this->language->get('text_tltblog'),
+					'href'     => $this->url->link('extension/tltblog/tltblog', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()	
+				);
+			}
+			
+			if ($this->user->hasPermission('access', 'extension/tltblog/tlttag')) {
+				$tltblog[] = array(
+					'name'	   => $this->language->get('text_tlttag'),
+					'href'     => $this->url->link('extension/tltblog/tlttag', 'user_token=' . $this->session->data['user_token'], true),
+					'children' => array()		
+				);
+			}
+			
+			if ($tltblog) {
+				$catalog[] = array(
+					'name'	   => $this->language->get('text_tltblog_parent'),
+					'href'     => '',
+					'children' => $tltblog
+				);
+			}
+			
+            ]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/startup/permission.php">
+        <operation>
+            <search trim="true" index="0"><![CDATA[
+			if (isset($part[2]) && in_array($route, $extension)) {
+			]]></search>
+            <add position="before" trim="false" offset="0"><![CDATA[
+            $extension[] = 'extension/tltblog';
+			]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/common/column_left.php">
+        <operation>
+            <search trim="true" index="0"><![CDATA[
+$_['text_information']          = 'Information';
+			]]></search>
+            <add position="after" trim="false" offset="0"><![CDATA[
+$_['text_tltblog_parent']       = 'TLT Blog';
+$_['text_tltblog']              = 'Articles';
+$_['text_tlttag']               = 'Tags';
+			]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/startup/seo_url.php">
+        <operation>
+            <search trim="true" index="0"><![CDATA[$this->request->get['route'] = 'error/not_found';]]></search>
+            <add position="replace" trim="false" offset="0"><![CDATA[$this->request->get['route'] = 'extension/tltblog/tltblog_seo';]]></add>
+        </operation>
+    </file>
+</modification>
