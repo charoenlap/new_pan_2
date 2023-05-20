@@ -3,5 +3,4 @@ error.log
 system/storage/logs/*
 image
 *.zip
-*.sql
 *.xlsx
