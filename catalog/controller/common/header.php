@@ -91,7 +91,6 @@ class ControllerCommonHeader extends Controller {
 		// new menu
 		$this->load->model('catalog/category');
 		$categories = $this->model_catalog_category->getCategories(0);
-		print_r($categories);
 		
 		$data['categories'] = array();
 		foreach ($categories as $key => $category) {

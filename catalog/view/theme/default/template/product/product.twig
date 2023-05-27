@@ -55,7 +55,7 @@
                                 {% endif %}
                                 </div>
                             </div>
-                            {# <p>Nam placerat sem lacus, ut vestibulum enim pulvinar vitae. Sed sodales, tortor et auctor volutpat, nisl est sollicex, nec sollicitudin risus odio mollis ligula. Suspendisse eget augue purus. Proin a mauris ac arcu volutpat mattis ac eu odio. Fusce at porttitor orci, nec accumsan nunc. Quisque tempor massa turpis, a congue mauris fermentum in. Vivamus molestie ac elit nec semper. Aenean dolor ipsum, aliquam vitae mi iaculis, congue finibus magna.</p> #}
+                            <p>{{introduction}}</p>
                             <div class="ps-stock">
                                 {{ text_stock }} {{ stock }}<br>
                                 {% for dl in downloads %}
@@ -311,6 +311,9 @@
                         <div class="related-posts">
                             <h5>Recently Viewed</h5>
                             <ul>
+                                {% for product in recently_viewed %}
+                                <li><a href="{{product.url}}"><img src="{{product.thumb}}" class="img-responsive" alt="{{product.name}}"/></a></li>
+                                {% endfor %}
                                 {# <li><a href="./single-product.html"><img src="images/products/fashion/1.jpg" class="img-responsive" alt=""/></a></li>
                                 <li><a href="./single-product.html"><img src="images/products/fashion/2.jpg" class="img-responsive" alt=""/></a></li>
                                 <li><a href="./single-product.html"><img src="images/products/fashion/3.jpg" class="img-responsive" alt=""/></a></li>

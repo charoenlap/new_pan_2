@@ -26,6 +26,7 @@ $_['column_action']          = 'ดำเนินการ';
 
 // Entry
 $_['entry_name']             = 'ชื่อสินค้า';
+$_['entry_introduction']      = 'คำอธิบายย่อ';
 $_['entry_description']      = 'คำอธิบาย';
 $_['entry_meta_title'] 	     = 'Meta Tag Title';
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords';

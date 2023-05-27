@@ -123,6 +123,7 @@ class ControllerCommonFooter extends Controller {
 		}
 
 
+		$data['description'] = $this->config->get('config_meta_description');
 		$data['address'] = nl2br($this->config->get('config_address'));
 		$data['owner'] = $this->config->get('config_name');
 

@@ -156,15 +156,29 @@ class ControllerProductProduct extends Controller {
 
 		$this->load->model('catalog/product');
 
-		// if (isset($this->session->data['product_views']) && !empty($this->session->data['product_views']) && is_array($this->session->data['product_views'])) {
-		// 	$this->session->data['product_views'] = array_filter($this->session->data['product_views'], array($product_id));
-		// } else {
-		// 	$this->session->data['product_views'] = array($product_id);
-		// }
 
-		// echo '<pre>';
-		// print_r($this->session->data['product_views']);
-		// echo '</pre>';
+		if (isset($this->session->data['product_views']) && !empty($this->session->data['product_views']) && is_array($this->session->data['product_views'])) {
+			$this->session->data['product_views'] = array_unique(array_merge($this->session->data['product_views'], array($product_id)));
+		} else {
+			$this->session->data['product_views'] = array($product_id);
+		}
+
+		$this->load->model('tool/image');
+		$data['recently_viewed'] = array();
+		if (isset($this->session->data['product_views']) && count($this->session->data['product_views'])>0) {
+			foreach ($this->session->data['product_views'] as $productView_id) {
+				$productview_info = $this->model_catalog_product->getProduct($productView_id);
+				
+				$data['recently_viewed'][] = array(
+					"product_id" => $productView_id,
+					"thumb" => ($productview_info['image']) ? $this->model_tool_image->resize($productview_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_thumb_height')) : "",
+					"name" => $productview_info['name'],
+					"price" => ($this->customer->isLogged() || !$this->config->get('config_customer_price')) ? $this->currency->format($this->tax->calculate($productview_info['price'], $productview_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']) : false,
+					"special" => ((float)$productview_info['special']) ? $this->currency->format($this->tax->calculate($productview_info['special'], $productview_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']) : false,
+					"url" => $this->url->link('product/product', '&product_id=' . $productView_id)
+				);
+			}
+		}
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
@@ -250,6 +264,7 @@ class ControllerProductProduct extends Controller {
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
+			$data['introduction'] = html_entity_decode($product_info['introduction'], ENT_QUOTES, 'UTF-8');
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
 			if ($product_info['quantity'] <= 0) {

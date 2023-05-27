@@ -16,7 +16,7 @@ $_['text_no']               = 'ไม่';
 $_['text_none']             = ' --- None --- ';
 $_['text_select']           = ' --- เลือก --- ';
 $_['text_all_zones']        = 'ทุกโซน';
-$_['text_pagination']       = 'แสดง  %d ถึง  %d จากทั้งหมด  %d รายการ (%d หน้า)';
+$_['text_pagination']       = 'แสดง  %d ถึง  %d จากทั้งหมด  %d รายการ';
 $_['text_loading']          = 'กำลังโหลดข้อมูล...';
 
 // Buttons

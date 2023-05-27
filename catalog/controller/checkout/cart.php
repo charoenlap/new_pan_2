@@ -302,7 +302,8 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			if (isset($this->request->post['option'])) {
-				$this->request->post['option'] = json_decode(htmlspecialchars_decode($this->request->post['option']), true);
+				// $this->request->post['option'] = json_decode(htmlspecialchars_decode($this->request->post['option']), true);
+				$this->request->post['option'] = $this->request->post['option'];
 				$option = array_filter(($this->request->post['option']));
 			} else {
 				$option = array();

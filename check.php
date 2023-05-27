@@ -1,4 +1,5 @@
 <?php  
+echo $_SERVER['DOCUMENT_ROOT'];
 // phpinfo();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -10,7 +11,7 @@ error_reporting(E_ALL);
 	// require_once 'PHPMailer-master/phpmailer/phpmailer/src/PHPMailer.php';
 	// require_once 'PHPMailer-master/phpamiler/phpmailer/src/SMTP.php';
 // phpinfo();
-smtp();
+// smtp();
 
 function smtp() {
 	/**
