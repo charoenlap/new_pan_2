@@ -1,6 +1,10 @@
 <?php
 // Text
 $_['text_home']          = 'หน้าแรก';
+$_['text_payment']          = 'แจ้งชำระเงิน';
+$_['text_blog']          = 'ข่าวสาร';
+$_['text_contact']          = 'ติดต่อ';
+$_['text_login']          = 'เข้าสู่ระบบ';
 $_['text_wishlist']      = 'รายการโปรด (%s)';
 $_['text_shopping_cart'] = 'ตระกร้าสินค้า';
 $_['text_category']      = 'หมวดหมู่สินค้า';

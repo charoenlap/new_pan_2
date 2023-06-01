@@ -151,9 +151,22 @@ _lt('send', 'cv', {
 
   gtag('config', 'G-1JT4VPXSPZ');
 </script> 
+
+			         {% if  not skinname =='' %}
+			           <link href="catalog/view/theme/doproocskin/stylesheet/{{ skinname }}.css" rel="stylesheet">
+					 {%  endif %}
+					   {% if  not  custom_css =='' %}
+			            <style type ="text/css" >{{ custom_css }}</style>
+				   {%  endif  %}
+			
 </head>
 
 <body>
+
+			         {% if  not skinname =='' %}
+			             <main  {% if  inboxed=='1' %}   class="inbox-wrap"   {%  endif  %}  >
+			         {%  endif  %}
+			
 
     <!-- PRELOADER -->
     <div id="loader"></div>
@@ -224,7 +237,7 @@ _lt('send', 'cv', {
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="{{home}}" class="active">Home</a>
+                                    <a href="{{home}}" class="active">{{text_home}}</a>
                                 </li>
 
                                 {% for category in categories %}
@@ -245,17 +258,17 @@ _lt('send', 'cv', {
                                 </li>
                                 {% endfor %}
                                 <li>
-                                    <a href="{{payment}}">Payment</a>
+                                    <a href="{{payment}}">{{text_payment}}</a>
                                 </li>
                                 <li>
-                                    <a href="{{blogs}}">News&Blog</a>
+                                    <a href="{{blogs}}">{{text_blog}}</a>
                                 </li>
                                 <li>
-                                    <a href="{{contact}}">Contact</a>
+                                    <a href="{{contact}}">{{text_contact}}</a>
                                 </li>
                                 {% if not logged %}
                                 <li>
-                                    <a href="{{login}}">login</a>
+                                    <a href="{{login}}">{{text_login}}</a>
                                 </li>
                                 {% endif %}
                             </ul>

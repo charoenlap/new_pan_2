@@ -4,7 +4,7 @@
         <div class="col-md-4 col-sm-4">
             <div class="block-content">
                 <img src="{{image}}" class="img-responsive" alt="" />
-                <a href="{{category1.link}}">
+                {# <a href="{{category1.link}}">
                 <div class="bs-text-down bs-text-down-top text-center hvr-outline-out">
                     <h3> {{category1.name}}</h3>
                 </div>
@@ -18,23 +18,33 @@
                 <div class="bs-text-down text-center hvr-outline-out">
                     <h3> {{category3.name}}</h3>
                 </div>
-                </a>
+                </a> #}
             </div>
+            <a href="{{category1.link}}">
+                <div class="text-center">
+                    <h3 style="color:#333;"> {{category1.name}}</h3>
+                </div>
+            </a>
         </div>
         <div class="col-md-4 col-sm-4">
             <div class="block-content">
                 <img src="{{image2}}" class="img-responsive" alt="" />
-                <a href="{{category4.link}}">
+                {# <a href="{{category4.link}}">
                 <div class="bs-text-center text-center">
                         <h3> {{category4.name}}</h3>
                 </div>
-                </a>
+                </a> #}
             </div>
+            <a href="{{category2.link}}">
+                <div class="text-center">
+                    <h3 style="color:#333;"> {{category2.name}}</h3>
+                </div>
+            </a>
         </div>
         <div class="col-md-4 col-sm-4">
             <div class="block-content">
                 <img src="{{image3}}" class="img-responsive" alt="" />
-                <a href="{{category5.link}}">
+                {# <a href="{{category5.link}}">
                 <div class="bs-text-down bs-text-down-top text-center">
                     <h3> {{category5.name}}</h3>
                 </div>
@@ -48,9 +58,15 @@
                 <div class="bs-text-down text-center">
                     <h3> {{category7.name}}</h3>
                 </div>
-                </a>
+                </a> #}
 
             </div>
+            
+            <a href="{{category3.link}}">
+                <div class="text-center">
+                    <h3 style="color:#333;"> {{category3.name}}</h3>
+                </div>
+            </a>
         </div>
     </div>
 </div>

@@ -104,26 +104,26 @@ class ControllerExtensionModuleHomeCategory extends Controller {
         } else {
             $data['category3'] = '';
         }
-        if (!empty($module_info['category4'])) {
-            $data['category4'] = $module_info['category4'];
-        } else {
-            $data['category4'] = '';
-        }
-        if (!empty($module_info['category5'])) {
-            $data['category5'] = $module_info['category5'];
-        } else {
-            $data['category5'] = '';
-        }
-        if (!empty($module_info['category6'])) {
-            $data['category6'] = $module_info['category6'];
-        } else {
-            $data['category6'] = '';
-        }
-        if (!empty($module_info['category7'])) {
-            $data['category7'] = $module_info['category7'];
-        } else {
-            $data['category7'] = '';
-        }
+        // if (!empty($module_info['category4'])) {
+        //     $data['category4'] = $module_info['category4'];
+        // } else {
+        //     $data['category4'] = '';
+        // }
+        // if (!empty($module_info['category5'])) {
+        //     $data['category5'] = $module_info['category5'];
+        // } else {
+        //     $data['category5'] = '';
+        // }
+        // if (!empty($module_info['category6'])) {
+        //     $data['category6'] = $module_info['category6'];
+        // } else {
+        //     $data['category6'] = '';
+        // }
+        // if (!empty($module_info['category7'])) {
+        //     $data['category7'] = $module_info['category7'];
+        // } else {
+        //     $data['category7'] = '';
+        // }
         
         // Category
         $this->load->model('catalog/category');

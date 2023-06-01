@@ -78,3 +78,8 @@
 	background: #333;
 }
 
+
+/* Box Select Size in product */
+.box-radio-size-item {
+	border:1px solid #333;
+}

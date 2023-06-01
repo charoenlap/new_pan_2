@@ -1,6 +1,11 @@
 <?php
 // Text
 $_['text_home']          = 'Home';
+$_['text_payment']          = 'Payment';
+$_['text_blog']          = 'News&Blog';
+$_['text_contact']          = 'Contact';
+$_['text_login']          = 'Login';
+
 $_['text_wishlist']      = 'Wish List (%s)';
 $_['text_shopping_cart'] = 'Shopping Cart';
 $_['text_category']      = 'Categories';
